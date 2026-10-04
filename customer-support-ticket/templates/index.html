@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support Ticket Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- 1. NAVIGATION BAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">Support Ticket Intelligence</a>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#analysis">Ticket Analysis</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="hero">
+      <div class="container">
+        <h1>Customer Support Ticket<br>Priority Prediction</h1>
+        <p class="subtitle">Analyze customer support tickets and automatically determine their priority and support level.</p>
+        <p class="description">Using Agentforce and automated workflow logic, support tickets can be analyzed and prioritized as High, Medium, or Low.</p>
+        <a href="#analysis" class="btn btn-primary">Analyze a Ticket</a>
+      </div>
+    </section>
+
+    <!-- 3. TICKET ANALYSIS + 5. RESULT CARD -->
+    <section id="analysis" class="section">
+      <div class="container narrow">
+        <div class="card">
+          <h2>Support Ticket Analysis</h2>
+
+          <form id="ticketForm" novalidate>
+            <label for="accountName">Account Name</label>
+            <input type="text" id="accountName" placeholder="Example: Acme Corporation">
+
+            <label for="issueType">Issue Type</label>
+            <select id="issueType">
+              <option value="Technical">Technical</option>
+              <option value="Billing">Billing</option>
+              <option value="General">General</option>
+            </select>
+
+            <label for="description">Ticket Description</label>
+            <textarea id="description" rows="5" placeholder="Example: The payment system is not working and the customer urgently needs help."></textarea>
+
+            <p id="errorMessage" class="error" role="alert"></p>
+            <button type="submit" class="btn btn-primary">Analyze Ticket</button>
+          </form>
+        </div>
+
+        <!-- Result card (hidden until a ticket is analyzed) -->
+        <div id="resultCard" class="card result" hidden>
+          <h2>Ticket Analysis Result</h2>
+          <p class="result-account" id="resultAccount"></p>
+
+          <div class="result-row">
+            <span class="result-label">Priority</span>
+            <span id="resultPriority" class="badge"></span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Assigned To</span>
+            <strong id="resultAgent"></strong>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Action</span>
+            <span id="resultAction"></span>
+          </div>
+          <p id="resultKeyword" class="keyword-note"></p>
+          <p id="resultTask" class="urgent-task" hidden>Urgent Ticket Handling Task Created</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PRIORITY LEVEL CARDS -->
+    <section class="section light">
+      <div class="container">
+        <h2 class="section-title">Priority Levels</h2>
+        <div class="grid three">
+          <div class="card priority high">
+            <h3>HIGH</h3>
+            <p>Urgent issues requiring immediate attention.</p>
+          </div>
+          <div class="card priority medium">
+            <h3>MEDIUM</h3>
+            <p>Issues that should be handled shortly.</p>
+          </div>
+          <div class="card priority low">
+            <h3>LOW</h3>
+            <p>Tickets that can be queued for processing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 & 8. AUTOMATED ASSIGNMENT + SLA RISK -->
+    <section class="section">
+      <div class="container">
+        <div class="grid two">
+          <div class="card">
+            <h2>Automated Assignment</h2>
+            <table>
+              <thead>
+                <tr><th>Ticket Priority</th><th>Assigned Support Level</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>High</td><td>Senior Support Agent</td></tr>
+                <tr><td>Medium</td><td>Support Agent</td></tr>
+                <tr><td>Low</td><td>Support Agent</td></tr>
+              </tbody>
+            </table>
+            <p class="note">High-priority tickets are automatically assigned to a senior support agent for immediate handling.</p>
+          </div>
+
+          <div class="card highlight">
+            <h2>SLA Breach Risk</h2>
+            <p>The system can check older unresolved tickets to identify potential SLA breach risk.</p>
+            <p class="example"><strong>Example:</strong> Ticket older than 2 days → Potential SLA Risk</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. WORKFLOW -->
+    <section class="section light">
+      <div class="container">
+        <h2 class="section-title">Project Workflow</h2>
+        <ol class="workflow">
+          <li>Ticket Creation</li>
+          <li>Account Identification</li>
+          <li>Ticket Retrieval</li>
+          <li>Description Analysis</li>
+          <li>Priority Classification</li>
+          <li>Agent Assignment</li>
+          <li>Urgent Task Creation</li>
+          <li>Support Handling</li>
+          <li>Resolution</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 9. ABOUT THE PROJECT -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About the Project</h2>
+        <div class="card">
+          <p>Customer Support Ticket Priority Prediction and Automated Assignment System uses Salesforce, Agentforce, and automated Flow logic to analyze support ticket descriptions, determine priority, assign the appropriate support level, and create urgent tasks for high-priority tickets.</p>
+          <div class="grid four info">
+            <div><span>Platform</span><strong>Salesforce</strong></div>
+            <div><span>AI</span><strong>Agentforce</strong></div>
+            <div><span>Automation</span><strong>Auto-Launched Flow</strong></div>
+            <div><span>Custom Object</span><strong>Support Ticket Intelligence</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. CUSTOM OBJECT INFORMATION -->
+    <section class="section light">
+      <div class="container narrow">
+        <div class="card">
+          <h2>Support Ticket Intelligence</h2>
+          <p class="note top">Custom object fields in Salesforce (visual representation only).</p>
+          <ul class="fields">
+            <li>Ticket Number</li>
+            <li>Customer</li>
+            <li>Contact</li>
+            <li>Issue Type</li>
+            <li>Description</li>
+            <li>Priority Level</li>
+            <li>Status</li>
+            <li>Created Date</li>
+            <li>Assigned To</li>
+            <li>SLA Breach Risk</li>
+            <li>Resolution Time</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 12. FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-title">Customer Support Ticket Priority Prediction and Automated Assignment System</p>
+      <p>Naan Mudhalvan Project</p>
+      <p>Salesforce | Agentforce | Flow</p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

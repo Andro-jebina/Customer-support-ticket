@@ -1,0 +1,129 @@
+/* ---------- Colors (project palette) ---------- */
+:root {
+  --dark-blue: #263D8D;
+  --light-blue: #A9C4E8;
+  --soft-yellow: #F3DEA0;
+  --cream: #FAF7EE;
+  --text: #22284a;
+
+  --red: #d64545;
+  --red-bg: #fbe3e3;
+  --yellow: #d9a516;
+  --yellow-bg: #fdf1c9;
+  --green: #2f9e5b;
+  --green-bg: #dff3e6;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+h1, h2, h3, .logo { font-family: "Poppins", Arial, sans-serif; font-weight: 700; color: var(--dark-blue); }
+
+.container { width: 92%; max-width: 1050px; margin: 0 auto; }
+.container.narrow { max-width: 720px; }
+
+/* ---------- Navbar ---------- */
+.navbar { background: var(--dark-blue); position: sticky; top: 0; z-index: 10; }
+.nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; flex-wrap: wrap; gap: 8px; }
+.logo { color: #fff; text-decoration: none; font-size: 1.15rem; }
+.navbar nav a { color: #fff; text-decoration: none; margin-left: 22px; font-weight: 500; }
+.navbar nav a:hover { color: var(--soft-yellow); }
+
+/* ---------- Hero ---------- */
+.hero { background: var(--light-blue); padding: 80px 0; text-align: center; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.2; margin-bottom: 18px; }
+.subtitle { font-size: 1.15rem; font-weight: 600; max-width: 650px; margin: 0 auto 12px; }
+.description { max-width: 650px; margin: 0 auto 28px; }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-block; border: none; cursor: pointer; text-decoration: none; font: 600 1rem "Inter", Arial, sans-serif; padding: 12px 28px; border-radius: 10px; }
+.btn-primary { background: var(--dark-blue); color: #fff; }
+.btn-primary:hover { background: #1c2f6e; }
+.btn:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--soft-yellow); outline-offset: 2px; }
+
+/* ---------- Sections and cards ---------- */
+.section { padding: 56px 0; }
+.section.light { background: #eef3fb; }
+.section-title { font-size: 1.8rem; text-align: center; margin-bottom: 28px; }
+
+.card { background: #fff; border-radius: 16px; padding: 28px; box-shadow: 0 4px 14px rgba(38, 61, 141, 0.1); }
+.card h2 { font-size: 1.4rem; margin-bottom: 16px; }
+.card + .card { margin-top: 24px; }
+.card.highlight { background: var(--soft-yellow); }
+
+.grid { display: grid; gap: 24px; }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+.grid.three { grid-template-columns: repeat(3, 1fr); }
+.grid.four { grid-template-columns: repeat(4, 1fr); }
+.grid .card + .card { margin-top: 0; }
+
+/* ---------- Form ---------- */
+label { display: block; font-weight: 600; margin: 16px 0 6px; color: var(--dark-blue); }
+input, select, textarea { width: 100%; padding: 11px 14px; border: 1.5px solid var(--light-blue); border-radius: 10px; font: inherit; background: var(--cream); }
+textarea { resize: vertical; }
+form .btn { margin-top: 20px; }
+.error { color: var(--red); font-weight: 600; margin-top: 14px; min-height: 1.2em; }
+
+/* ---------- Result card ---------- */
+.result-account { color: #5b6285; margin-bottom: 14px; }
+.result-row { display: flex; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid #e6eaf5; }
+.result-label { width: 110px; font-weight: 600; color: var(--dark-blue); flex-shrink: 0; }
+.badge { padding: 4px 18px; border-radius: 20px; font-weight: 700; color: #fff; }
+.badge.high { background: var(--red); }
+.badge.medium { background: var(--yellow); }
+.badge.low { background: var(--green); }
+.keyword-note { margin-top: 14px; font-size: 0.92rem; color: #5b6285; }
+.urgent-task { margin-top: 16px; background: var(--red-bg); color: var(--red); font-weight: 700; padding: 12px 16px; border-radius: 10px; border-left: 5px solid var(--red); }
+
+/* ---------- Priority cards ---------- */
+.priority { text-align: center; border-top: 6px solid; }
+.priority h3 { font-size: 1.4rem; margin-bottom: 8px; }
+.priority.high { border-color: var(--red); background: var(--red-bg); }
+.priority.high h3 { color: var(--red); }
+.priority.medium { border-color: var(--yellow); background: var(--yellow-bg); }
+.priority.medium h3 { color: #a77d00; }
+.priority.low { border-color: var(--green); background: var(--green-bg); }
+.priority.low h3 { color: var(--green); }
+
+/* ---------- Table ---------- */
+table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #e6eaf5; }
+th { background: var(--light-blue); color: var(--dark-blue); }
+.note { font-size: 0.95rem; }
+.note.top { margin-bottom: 14px; color: #5b6285; }
+.example { margin-top: 14px; background: rgba(255, 255, 255, 0.6); padding: 12px 14px; border-radius: 10px; }
+
+/* ---------- Workflow ---------- */
+.workflow { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
+.workflow li { counter-increment: step; position: relative; background: #fff; border-radius: 12px; padding: 16px 16px 16px 58px; font-weight: 600; box-shadow: 0 4px 14px rgba(38, 61, 141, 0.1); }
+.workflow li::before { content: counter(step); position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; border-radius: 50%; background: var(--dark-blue); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+
+/* ---------- About ---------- */
+.info { margin-top: 24px; }
+.info div { background: var(--cream); border-left: 5px solid var(--soft-yellow); border-radius: 10px; padding: 12px 14px; }
+.info span { display: block; font-size: 0.85rem; color: #5b6285; }
+.info strong { color: var(--dark-blue); }
+
+/* ---------- Custom object fields ---------- */
+.fields { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.fields li { background: var(--cream); border-left: 5px solid var(--light-blue); padding: 10px 14px; border-radius: 8px; font-weight: 500; }
+
+/* ---------- Footer ---------- */
+.footer { background: var(--dark-blue); color: #fff; text-align: center; padding: 32px 0; }
+.footer-title { font-weight: 700; margin-bottom: 6px; }
+.footer p { margin-bottom: 4px; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 800px) {
+  .grid.two, .grid.three, .grid.four, .workflow, .fields { grid-template-columns: 1fr; }
+  .navbar nav a { margin: 0 14px 0 0; }
+  .hero { padding: 56px 0; }
+  .result-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+}
